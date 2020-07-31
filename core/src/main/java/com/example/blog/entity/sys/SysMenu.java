@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Data
-@ApiModel(value="SysMenu对象", description="菜单管理")
+@ApiModel(value = "SysMenu对象", description = "菜单管理")
 public class SysMenu implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -29,7 +29,7 @@ public class SysMenu implements Serializable {
     private String url;
 
     @ApiModelProperty(value = "授权(多个用逗号分隔，如：user:list,user:create)")
-    @TableField(strategy= FieldStrategy.IGNORED)
+    @TableField(strategy = FieldStrategy.IGNORED)
     private String perms;
 
     @ApiModelProperty(value = "类型   0：目录   1：菜单   2：按钮")
@@ -44,14 +44,14 @@ public class SysMenu implements Serializable {
     /**
      * 父菜单名称
      */
-    @TableField(exist=false)
+    @TableField(exist = false)
     private String parentName;
     /**
      * z-tree属性
      */
-    @TableField(exist=false)
+    @TableField(exist = false)
     private Boolean open;
 
-    @TableField(exist=false)
+    @TableField(exist = false)
     private List<?> list;
 }

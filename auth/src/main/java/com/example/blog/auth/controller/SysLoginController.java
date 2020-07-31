@@ -34,7 +34,7 @@ public class SysLoginController extends AbstractController {
     @Autowired
     private SysUserTokenService sysUserTokenService;
 
-    @GetMapping("captcha.jpg")
+    @GetMapping("/captcha.jpg")
     public void captcha(HttpServletResponse response, String uuid) throws IOException {
         response.setHeader("Cache-Control", "no-store, no-cache");
         response.setContentType("image/jpeg");
