@@ -25,7 +25,7 @@ public interface SysUserTokenService {
      *
      * @param userId
      */
-    void logou(Integer userId);
+    void logout(Integer userId);
 
     /**
      * 续期
