@@ -25,6 +25,5 @@
             from tag t
             left join tag_link tl on t.id = tl.tag_id and t.type = tl.type) t
         group by t.name
-        )
     </select>
 </mapper>

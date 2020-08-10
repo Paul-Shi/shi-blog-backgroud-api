@@ -82,7 +82,8 @@
     </select>
 
     <select id="listSimpleBookNote" resultType="com.example.blog.entity.book.BookNote">
-        select <include refid="homeBookNoteColumn"/> from book_note where book_id = #{bookId}    </select>
+        select <include refid="homeBookNoteColumn"/> from book_note where book_id = #{bookId}
+    </select>
 
     <update id="updateLikeNum">
         update book_note set like_num = like_num + 1 where id = #{id}
