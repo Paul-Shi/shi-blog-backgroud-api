@@ -39,7 +39,7 @@
     </sql>
 
     <sql id="homeBookColumn">
-        id, title, description, auhtor, read_num, like_num, cover, creat_time, reading, progress
+        id, title, description, author, read_num, like_num, cover, create_time, reading, progress
     </sql>
 
     <select id="listBookVo" resultType="com.example.blog.entity.book.vo.BookVO">
