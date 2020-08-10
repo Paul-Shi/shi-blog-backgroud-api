@@ -1,11 +1,13 @@
 package com.example.blog.portal.article.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.blog.common.util.PageUtils;
+import com.example.blog.entity.article.Article;
 import com.example.blog.entity.article.vo.ArticleVO;
 
 import java.util.Map;
 
-public interface ArticleService {
+public interface ArticleService extends IService<Article> {
     /**
      * 分页分类获取列表
      *

@@ -43,6 +43,11 @@ spring:
         max-wait: -1ms #连接池最大阻塞等待时间
         max-idle: 10 #连接池最大空闲连接
         min-idle: 5 #连接池最小空闲连接
+  # elasticsearch配置
+  data:
+    elasticsearch:
+      cluster-name: docker-cluster
+      cluster-nodes: 127.0.0.1:9300
 #mybatis-plus
 mybatis-plus:
   global-config:
