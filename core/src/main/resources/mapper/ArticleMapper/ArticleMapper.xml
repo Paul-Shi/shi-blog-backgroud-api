@@ -24,4 +24,60 @@
     <resultMap id="WithTagList" type="com.example.blog.entity.article.dto.ArticleDTO" extends="BaseResultMap">
         <association property="tagList" column="{ linkId = id, type = type }" select="com.example.blog.mapper.operation.TagMapper.listByLinkId"/>
     </resultMap>
+
+    <sql id="homeArticleColumn">
+        id, title, description, author, read_num, like_num, cover, cover_type, create_time, top
+    </sql>
+
+    <sql id="manageArticleColumn">
+        id, title, description, author, read_num, like_num, cover, cover_type, create_time, top, publish, recommend, category_id
+    </sql>
+
+    <select id="listArticleVo" resultType="com.example.blog.entity.article.vo.ArticleVO">
+        select <include refid="manageArticleColumn"/> from article
+        <where>
+            <if test="params.title != null and params.title != ''">
+                and title like concat('%', #{params.title}, '%')
+            </if>
+        </where>
+        order by update_time desc
+    </select>
+
+    <select id="queryPageCondition" resultMap="WithTagList">
+        select <include refid="homeArticleColumn"/>, 0 as `type` from article
+        <where>
+            <if test="params.recommend != null and params.recommend != ''">
+                and recommend = true
+            </if>
+            <if test="params.categoryId != null and params.categoryId != ''">
+                and find_in_set(#{params.categoryId}, category_id)
+            </if>
+            and publish = true
+        </where>
+        <if test="params.recommend != null and params.recommend != ''">
+            order by top desc, recommend desc
+        </if>
+        <if test="params.latest != null and params.latest != ''">
+            order by top desc, create_time desc
+        </if>
+        <if test="params.favorite != null and params.favorite != ''">
+            order by top desc, like_num desc
+        </if>
+    </select>
+
+    <update id="updateReadNum">
+        update article set read_num = read_num + 1 where id = #{id}
+    </update>
+
+    <select id="getSimpleArticleVo" resultType="com.example.blog.entity.article.vo.ArticleVO">
+        select <include refid="homeArticleColumn"/> from article where id = #{id}
+    </select>
+
+    <update id="updateLikeNum">
+        update article set like_num = like_num + 1 where id = #{id}
+    </update>
+
+    <select id="checkByCategory" resultType="Integer">
+        select count(*) from article where category_id = #{categoryId}
+    </select>
 </mapper>
