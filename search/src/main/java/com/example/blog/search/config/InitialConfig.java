@@ -10,16 +10,16 @@ import org.springframework.context.annotation.Configuration;
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
-//@Configuration
-//@ConditionalOnClass(ElasticsearchClient.class)
-//public class InitialConfig {
-//    @Resource
-//    private RabbitMqUtils rabbitMqUtils;
-//
-//    @PostConstruct
-//    public void initEsIndex() {
-//        rabbitMqUtils.send(RabbitMqConstants.REFRESH_ES_INDEX_QUEUE, "blog-search init index");
-//        ConnectionFactory connectionFactory = new ConnectionFactory();
-//        connectionFactory.setAutomaticRecoveryEnabled(false);
-//    }
-//}
+@Configuration
+@ConditionalOnClass(ElasticsearchClient.class)
+public class InitialConfig {
+    @Resource
+    private RabbitMqUtils rabbitMqUtils;
+
+    @PostConstruct
+    public void initEsIndex() {
+        rabbitMqUtils.send(RabbitMqConstants.REFRESH_ES_INDEX_QUEUE, "blog-search init index");
+        ConnectionFactory connectionFactory = new ConnectionFactory();
+        connectionFactory.setAutomaticRecoveryEnabled(false);
+    }
+}

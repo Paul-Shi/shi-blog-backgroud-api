@@ -46,8 +46,16 @@ spring:
   # elasticsearch配置
   data:
     elasticsearch:
+      repositories:
+        enabled: true
       cluster-name: docker-cluster
       cluster-nodes: 127.0.0.1:9300
+  # rabbitMQ配置
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
 #mybatis-plus
 mybatis-plus:
   global-config:
