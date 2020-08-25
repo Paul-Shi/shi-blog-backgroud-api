@@ -33,7 +33,7 @@ spring:
             multi-statement-allow: true
   # redis 配置
   redis:
-    host: localhost
+    host: 123.207.125.116
     port: 6379
     timeout: 6s #连接池超时时长
     password: yuan
@@ -44,12 +44,15 @@ spring:
         max-idle: 10 #连接池最大空闲连接
         min-idle: 5 #连接池最小空闲连接
   # elasticsearch配置
+  elasticsearch:
+    rest:
+        uris: ["123.207.125.116:9200"]
   data:
     elasticsearch:
       repositories:
         enabled: true
       cluster-name: docker-cluster
-      cluster-nodes: 127.0.0.1:9300
+      cluster-nodes: 123.207.125.116:9300
   # rabbitMQ配置
   rabbitmq:
     host: 127.0.0.1
