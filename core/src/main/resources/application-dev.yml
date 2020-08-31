@@ -55,10 +55,10 @@ spring:
       cluster-nodes: 123.207.125.116:9300
   # rabbitMQ配置
   rabbitmq:
-    host: 127.0.0.1
+    host: 123.207.125.116
     port: 5672
-    username: guest
-    password: guest
+    username: admin
+    password: StrongPassword
 #mybatis-plus
 mybatis-plus:
   global-config:
