@@ -51,14 +51,14 @@ spring:
     elasticsearch:
       repositories:
         enabled: true
-      cluster-name: docker-cluster
+      cluster-name: my-application
       cluster-nodes: 123.207.125.116:9300
   # rabbitMQ配置
   rabbitmq:
     host: 123.207.125.116
     port: 5672
     username: admin
-    password: StrongPassword
+    password: amin
 #mybatis-plus
 mybatis-plus:
   global-config:

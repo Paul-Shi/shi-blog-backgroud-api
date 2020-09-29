@@ -13,6 +13,7 @@ import javax.annotation.Resource;
 @Configuration
 @ConditionalOnClass(ElasticsearchClient.class)
 public class InitialConfig {
+
     @Resource
     private RabbitMqUtils rabbitMqUtils;
 
